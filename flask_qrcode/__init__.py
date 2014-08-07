@@ -16,9 +16,12 @@ def qrcode(data, filename='QRcode', filedir='.', version=None, error_correction=
 
     qrpath = url_for('static', filename=os.path.join(filedir, filename) + '.png' )
 
-    with open('./' + qrpath, 'wb') as qrfile:
-        qrimg = qr.make_image()
-        qrimg.save(qrfile)
+    try:
+        with open('./' + qrpath, 'wb') as qrfile:
+            qrimg = qr.make_image()
+            qrimg.save(qrfile)
+    except IOError as err:
+        print("Error: %s" % err )
 
     return Markup(render_template('qrcode/qrcode.html', qrcode_url=qrpath))
 

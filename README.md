@@ -21,7 +21,7 @@ QRcode(app)
 # [...]
 ```
 
-###Then use it with in your templates:
+###Then use it within your templates:
 
 ####Basic usage:
 
