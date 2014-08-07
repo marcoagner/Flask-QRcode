@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Flask-QRcode',
-    version='0.1.0',
+    version='0.2.0',
     license='MIT',
     description='A simple flask extension to render QR codes on template',
     long_description=open('README.md').read(),
