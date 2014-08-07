@@ -1,0 +1,3 @@
+include README.md
+include flask_qrcode/templates/qrcode/qrcode.html
+recursive-include flask_qrcode/templates/qrcode *
