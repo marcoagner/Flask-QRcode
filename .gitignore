@@ -58,3 +58,6 @@ docs/_build/
 
 # OSX
 .DS_Store
+
+# QR imgs
+examples/static/*.png
