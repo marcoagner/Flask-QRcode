@@ -3,6 +3,8 @@ Flask-QRcode
 
 A simple Flask extension to render QR codes on the template
 
+![](QRcode.png)
+
 ##Installation
     
 ```
