@@ -21,7 +21,7 @@ def qrcode(data, filename='QRcode', filedir='.', version=None, error_correction=
             qrimg = qr.make_image()
             qrimg.save(qrfile)
     except IOError as err:
-        print("Error: %s" % err )
+        raise err("Could not create QR code file")
 
     return Markup(render_template('qrcode/qrcode.html', qrcode_url=qrpath))
 
