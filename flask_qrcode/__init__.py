@@ -1,6 +1,6 @@
-from flask import render_template, Blueprint, Markup, url_for
-
 import os.path
+
+from flask import render_template, Blueprint, Markup, url_for
 
 import qrcode as qrc
 
