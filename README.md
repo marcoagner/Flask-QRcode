@@ -17,6 +17,7 @@ pip install Flask-QRcode
 
 ```
 from flask.ext.qrcode import QRcode
+# [...]
 QRcode(app)
 # [...]
 ```
