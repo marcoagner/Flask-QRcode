@@ -17,7 +17,7 @@ def qrcode(data, filename='QRcode', filedir='.', version=None, error_correction=
     qrpath = url_for('static', filename=os.path.join(filedir, filename) + '.png' )
 
     try:
-        with open('./' + qrpath, 'wb') as qrfile:
+        with open('.' + qrpath, 'wb') as qrfile:
             qrimg = qr.make_image()
             qrimg.save(qrfile)
     except IOError as err:
