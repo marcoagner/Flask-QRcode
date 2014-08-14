@@ -22,10 +22,10 @@ def search_created_qrs(filename, filedir, options):
             return created_qrs.index(qr)
     return None
 
-def qrcode(data, filename=None, filedir='.', version=None, error_correction='L', box_size=10, border=0, fit=True):
-    current_options = locals().copy() #gets arguments by copying the current locals()
-    current_options.pop('filedir')
-    current_options.pop('filename')
+def qrcode(data, filename=None, filedir='.', version=None, error_correction='L', box_size=10, border=0, fit=True, tag_id=None, tag_class=None, tag_title=None, tag_alt=None):
+    #gets arguments by copying the current locals() and pops qrcode options related to future comparison
+    current_options = locals().copy()
+    [current_options.pop(e) for e in ['filename', 'filedir', 'tag_id', 'tag_alt', 'tag_title', 'tag_class']]
 
     create_file = bool
     qr_file = None
@@ -63,7 +63,7 @@ def qrcode(data, filename=None, filedir='.', version=None, error_correction='L',
         except IOError as err:
             raise err()
 
-    return Markup(render_template('qrcode/qrcode.html', qrcode_url=qr_path))
+    return Markup(render_template('qrcode/qrcode.html', qrcode_url=qr_path, tag_id=tag_id, tag_class=tag_class, tag_title=tag_title, tag_alt=tag_alt))
 
 
 class QRcode(object):
