@@ -60,4 +60,4 @@ docs/_build/
 .DS_Store
 
 # QR imgs
-examples/static/*.png
+sample_application/**/*.png
