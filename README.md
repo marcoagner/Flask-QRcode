@@ -26,9 +26,7 @@ QRcode(app)
 
 ####Basic usage:
 
-    {{ qrcode(STRING_TO_ENCODE) }}
+    <img src="{{ qrcode(STRING_TO_ENCODE) }}">
     
 ###More examples:
 [Examples folder](https://github.com/marcoagner/Flask-QRcode/tree/master/sample_application)
-
-This will render the given string as a QR code image.

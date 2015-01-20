@@ -4,34 +4,24 @@
     <title>flask-QRcode Example</title>
   </head>
   <body>
-    <h1>File directory name examples:</h1>
-    <h2>&#123;&#123; qrcode("Do you speak QR?") &#125;&#125;</h2>
-    {{ qrcode("Do you speak QR?") }}
-    <h2>&#123;&#123; qrcode("Oh, look, I have a name!", filename="marco") &#125;&#125;</h2>
-    {{ qrcode("Oh, look, I have a name!", filename="marco") }}
-    <h2>&#123;&#123; qrcode("I'm a banana inside images/", filedir="images") &#125;&#125;</h2>
-    {{ qrcode("I'm a banana inside images/", filedir="images") }}
-    <h2>&#123;&#123; qrcode("There's only one true banana and that's me!", filename="banana", filedir="images") &#125;&#125;</h2>
-    {{ qrcode("There's only one true banana and that's me", filename="banana", filedir="images") }}
-    <br>
+    <h1>Simple example:</h1>
+    <h2>&lt;img src="&#123;&#123; qrcode("Do you speak QR?") &#125;&#125;"&gt;</h2>
+    <img src="{{ qrcode("Do you speak QR?") }}">
+
     <h1>Shape examples:</h1>
-    <h2>&#123;&#123; qrcode("Honey, do you think I'm fat?", box_size=20) &#125;&#125;</h2>
-    {{ qrcode("Honey, do you think I'm fat?", box_size=20) }}
-    <h2>&#123;&#123; qrcode("Oh... eer... I gotta go to work!", border=10) &#125;&#125;</h2>
-    {{ qrcode("Oh... eer... I gotta go to work!", border=10) }}
+    <h2>&lt;img src="&#123;&#123; qrcode("I'm bigger than you!", box_size=20) &#125;&#125;"&gt;</h2>
+    <img src="{{ qrcode("I'm bigger than you!", box_size=20) }}">
+    <h2>&lt;img src="&#123;&#123; qrcode("Whatever.. can't touch me", border=10) &#125;&#125;"&gt;</h2>
+    <img src="{{ qrcode("Whatever... cant't touch me", border=10) }}">
     <br>
+
     <h1>Some QR specific examples:</h1>
-    <h2>&#123;&#123; qrcode("You can read me even if I'm 30% hurt.", error_correction='H') &#125;&#125;</h2>
-    {{ qrcode("You can read me even if I'm 30% hurt.", error_correction='H') }}
+    <h2>&lt;img src="&#123;&#123; qrcode("You can read me even if I'm 30% hurt.", error_correction='H') &#125;&#125;"&gt;</h2>
+    <img src="{{ qrcode("You can read me even if I'm 30% hurt.", error_correction='H') }}">
     <br>
-    <h1>Some combo examples:</h1>
-    <h2>&#123;&#123; qrcode("FATALITY", filename="fatality", filedir="images", box_size=12, border=5) &#125;&#125;</h2>
-    {{ qrcode("FATALITY", filename="fatality", filedir="images", box_size=12, border=5) }}
-    <h2>&#123;&#123; qrcode("BABALITY", filename="babality", filedir="images", box_size=3) &#125;&#125;</h2>
-    {{ qrcode("BABALITY", filename="babality", filedir="images", box_size=3) }}
-    <br>
-    <h1>img tag specifics:</h1>
-    <h2>&#123;&#123; qrcode("I have attributes!", tag_id="tag_example", tag_class="noble", tag_title="I'm a tooltip", tag_alt="I'm too good to be true.") &#125;&#125;</h2>
-    {{ qrcode("I have attributes!", tag_id="tag_example", tag_class="noble", tag_title="I'm a tooltip", tag_alt="I'm too good to be true.") }}
+    
+    <h1>A combo example:</h1>
+    <h2>&lt;img src="&#123;&#123; qrcode("FATALITY", box_size=12, border=5) &#125;&#125;"&gt;</h2>
+    <img src="{{ qrcode("FATALITY", box_size=12, border=5) }}">
   </body>
 </html>
