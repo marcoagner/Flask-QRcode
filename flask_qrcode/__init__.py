@@ -1,4 +1,7 @@
-import StringIO
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
 import base64
 
 from flask import render_template, Blueprint, Markup, url_for
@@ -23,7 +26,7 @@ def qrcode(data, version=None, error_correction='L', box_size=10, border=0, fit=
     qr.make(fit=fit)
 
     # creates qrcode base64
-    io = StringIO.StringIO()
+    io = StringIO()
     qr_img = qr.make_image()
     qr_img.save(io)
 
