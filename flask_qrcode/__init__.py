@@ -1,4 +1,5 @@
-import StringIO
+from io import BytesIO
+
 import base64
 
 from flask import render_template, Blueprint, Markup, url_for
@@ -23,11 +24,11 @@ def qrcode(data, version=None, error_correction='L', box_size=10, border=0, fit=
     qr.make(fit=fit)
 
     # creates qrcode base64
-    io = StringIO.StringIO()
+    out = BytesIO()
     qr_img = qr.make_image()
-    qr_img.save(io)
+    qr_img.save(out, 'PNG')
 
-    return "data:image/png;base64," + base64.b64encode(io.getvalue())
+    return u"data:image/png;base64," + base64.b64encode(out.getvalue()).decode('ascii')
 
 class QRcode(object):
 
