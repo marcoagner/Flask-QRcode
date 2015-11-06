@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>flask-QRcode Example</title>
-  </head>
-  <body>
-    <h1>Simple example:</h1>
-    <h2>&lt;img src="&#123;&#123; qrcode("Do you speak QR?") &#125;&#125;"&gt;</h2>
-    <img src="{{ qrcode("Do you speak QR?") }}">
+</head>
+    <body>
+        <h1>Simple example:</h1>
 
-    <h1>Shape examples:</h1>
-    <h2>&lt;img src="&#123;&#123; qrcode("I'm bigger than you!", box_size=20) &#125;&#125;"&gt;</h2>
-    <img src="{{ qrcode("I'm bigger than you!", box_size=20) }}">
-    <h2>&lt;img src="&#123;&#123; qrcode("Whatever.. can't touch me", border=10) &#125;&#125;"&gt;</h2>
-    <img src="{{ qrcode("Whatever... cant't touch me", border=10) }}">
-    <br>
+        <h2>&lt;img src="&#123;&#123; qrcode("Do you speak QR?") &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("Do you speak QR?") }}">
 
-    <h1>Some QR specific examples:</h1>
-    <h2>&lt;img src="&#123;&#123; qrcode("You can read me even if I'm 30% hurt.", error_correction='H') &#125;&#125;"&gt;</h2>
-    <img src="{{ qrcode("You can read me even if I'm 30% hurt.", error_correction='H') }}">
-    <br>
-    
-    <h1>A combo example:</h1>
-    <h2>&lt;img src="&#123;&#123; qrcode("FATALITY", box_size=12, border=5) &#125;&#125;"&gt;</h2>
-    <img src="{{ qrcode("FATALITY", box_size=12, border=5) }}">
-  </body>
+        <h1>Shape examples:</h1>
+
+        <h2>&lt;img src="&#123;&#123; qrcode("I'm bigger than you!", box_size=20) &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("I'm bigger than you!", box_size=20) }}">
+
+        <h2>&lt;img src="&#123;&#123; qrcode("Whatever.. can't touch me", border=10) &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("Whatever... cant't touch me", border=10) }}">
+        <br>
+
+        <h1>Some QR specific examples:</h1>
+
+        <h2>&lt;img src="&#123;&#123; qrcode("You can read me even if I'm 30% hurt.", error_correction='H') &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("You can read me even if I'm 30% hurt.", error_correction='H') }}">
+        <br>
+
+        <h1>A combo example:</h1>
+
+        <h2>&lt;img src="&#123;&#123; qrcode("FATALITY", box_size=12, border=5) &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("FATALITY", box_size=12, border=5) }}">
+    </body>
 </html>

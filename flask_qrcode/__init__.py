@@ -1,8 +1,9 @@
-import StringIO
+# coding=utf-8
 import base64
+from io import BytesIO
 
-from flask import render_template, Blueprint, Markup, url_for
 import qrcode as qrc
+from flask import Blueprint
 
 correction_levels = {
     'L': qrc.constants.ERROR_CORRECT_L,
@@ -11,8 +12,9 @@ correction_levels = {
     'H': qrc.constants.ERROR_CORRECT_H
 }
 
+
 def qrcode(data, version=None, error_correction='L', box_size=10, border=0, fit=True):
-    # makes qr image using qrcode as qrc
+    """ makes qr image using qrcode as qrc See documentation for qrcode package for info"""
     qr = qrc.QRCode(
         version=version,
         error_correction=correction_levels[error_correction],
@@ -23,14 +25,14 @@ def qrcode(data, version=None, error_correction='L', box_size=10, border=0, fit=
     qr.make(fit=fit)
 
     # creates qrcode base64
-    io = StringIO.StringIO()
+    out = BytesIO()
     qr_img = qr.make_image()
-    qr_img.save(io)
+    qr_img.save(out, 'PNG')
 
-    return "data:image/png;base64," + base64.b64encode(io.getvalue())
+    return u"data:image/png;base64," + base64.b64encode(out.getvalue()).decode('ascii')
+
 
 class QRcode(object):
-
     def __init__(self, app=None, **kwargs):
         if app:
             self.init_app(app)
