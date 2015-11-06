@@ -30,3 +30,19 @@ QRcode(app)
     
 ###More examples:
 [Examples folder](https://github.com/marcoagner/Flask-QRcode/tree/master/sample_application)
+
+##Contributing:
+
+It's awesome that you want to contribute to this package. Thanks in advance!
+
+The process is pretty stratighforward...
+
+1. Fork this repository
+2. Checkout from Master with a feature branch (prefer naming it related to what is being contributed)
+3. Do your magic
+  * Install the dependencies:
+  ```
+  pip install -r requirements.txt
+  pip install -e . # for installing flask_qrcode on editable mode
+  ```
+4. Don't be shy and... Pull Request!
