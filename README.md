@@ -29,7 +29,7 @@ QRcode(app)
     <img src="{{ qrcode(STRING_TO_ENCODE) }}">
     
 ###More examples:
-[Sample Application](https://github.com/marcoagner/Flask-QRcode/tree/master/sample_application)
+[Sample Application](https://github.com/AgnerIO/Flask-QRcode/tree/master/sample_application)
 
 ##Contributing:
 
