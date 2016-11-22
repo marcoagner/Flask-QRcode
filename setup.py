@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='Flask-QRcode',
-    version='0.6.0',
+    version='0.7.0',
     license='MIT',
     description='A simple flask extension to render QR codes on template',
     long_description=open('README.md').read(),
-    author='Agner IO',
-    author_email='hello@agner.io',
-    url='https://github.com/AgnerIO/Flask-QRcode',
+    author='Marco Agner',
+    author_email='marcoagner@agner.io',
+    url='https://github.com/marcoagner/Flask-QRcode',
     platforms='any',
     zip_safe=False,
     include_package_data=True,
