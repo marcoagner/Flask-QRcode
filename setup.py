@@ -1,4 +1,19 @@
+import sys
 from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
+
+
+class PyTest(TestCommand):
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = ['-v']
+        self.test_suite = True
+
+    def run_tests(self):
+        import pytest
+        err_code = pytest.main(self.test_args)
+        sys.exit(err_code)
+
 
 setup(
     name='Flask-QRcode',
@@ -17,6 +32,8 @@ setup(
         'qrcode',
         'pillow'
     ],
+    tests_require=['pytest'],
+    cmdclass={'test': PyTest},
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
