@@ -28,5 +28,17 @@
 
         <h2>&lt;img src="&#123;&#123; qrcode("FATALITY", box_size=12, border=5) &#125;&#125;"&gt;</h2>
             <img src="{{ qrcode("FATALITY", box_size=12, border=5) }}">
+
+        <h1>A color QR example:</h1>
+
+        <h2>&lt;img src="&#123;&#123; qrcode("You can see green front color and #CCC back color.", error_correction='H', back_color='ccc', fill_color='green') &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("You can see green front color and #CCC back color.", error_correction='H', back_color='ccc', fill_color='green') }}">
+        <br>
+
+        <h1>A icon image QR example:</h1>
+
+        <h2>&lt;img src="&#123;&#123; qrcode("You can see a icon in QR code.", error_correction='H', icon_img='https://avatars2.githubusercontent.com/u/5016303') &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("You can see a icon in QR code.", error_correction='H', icon_img='https://avatars2.githubusercontent.com/u/5016303') }}">
+        <br>
     </body>
 </html>
