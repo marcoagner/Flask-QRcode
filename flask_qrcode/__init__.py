@@ -16,7 +16,7 @@ class QRcode(object):
     """Generate QR Code image"""
     color = ['red', 'maroon', 'olive', 'yellow', 'lime', 'green',
              'aqua', 'teal', 'blue', 'navy', 'fuchsia', 'purple',
-             'white', 'silver', 'gray', 'black']
+             'white', 'silver', 'gray', 'black', 'transparent']
 
     correction_levels = {
         'L': qrc.constants.ERROR_CORRECT_L,
@@ -59,8 +59,9 @@ class QRcode(object):
         return module
 
     @classmethod
-    def qrcode(cls, data, mode="base64", version=None, error_correction="L", box_size=10,
-               border=0, fit=True, fill_color="black", back_color="white", **kwargs):
+    def qrcode(cls, data, mode="base64", version=None, error_correction="L",
+               box_size=10, border=0, image_factory=None, fit=True,
+               fill_color="black", back_color="white", **kwargs):
         """
         Makes qr image using qrcode as qrc. See documentation
         for qrcode package for info.
@@ -83,7 +84,8 @@ class QRcode(object):
             version=version,
             error_correction=cls.correction_levels[error_correction],
             box_size=box_size,
-            border=border
+            border=border,
+            image_factory=image_factory
         )
         qr.add_data(data)
         qr.make(fit=fit)
