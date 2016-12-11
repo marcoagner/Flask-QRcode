@@ -16,7 +16,7 @@ class QRcode(object):
     """Generate QR Code image"""
     color = ['red', 'maroon', 'olive', 'yellow', 'lime', 'green',
              'aqua', 'teal', 'blue', 'navy', 'fuchsia', 'purple',
-             'white', 'silver', 'gray', 'black']
+             'white', 'silver', 'gray', 'black', 'transparent']
 
     correction_levels = {
         'L': qrc.constants.ERROR_CORRECT_L,
@@ -33,6 +33,9 @@ class QRcode(object):
             self.init_app(app)
 
     def __call__(self, *args, **kwargs):
+        if self.app:
+            return self.qrcode(
+                static_dir=self.app.static_folder, *args, **kwargs)
         return self.qrcode(*args, **kwargs)
 
     def init_app(self, app):
@@ -44,8 +47,9 @@ class QRcode(object):
         app.extensions['qrcode'] = self
 
         if self._config_jinja:
-            app.add_template_filter(self.qrcode, 'qrcode')
-            app.add_template_global(self.qrcode, 'qrcode')
+            self._qrcode = self.__call__
+            app.add_template_filter(self._qrcode, 'qrcode')
+            app.add_template_global(self._qrcode, 'qrcode')
 
     def register_blueprint(self, app):
         module = Blueprint('qrcode',
@@ -54,8 +58,10 @@ class QRcode(object):
         app.register_blueprint(module)
         return module
 
-    def qrcode(self, data, mode="base64", version=None, error_correction="L", box_size=10,
-               border=0, fit=True, fill_color="black", back_color="white", **kwargs):
+    @classmethod
+    def qrcode(cls, data, mode="base64", version=None, error_correction="L",
+               box_size=10, border=0, image_factory=None, fit=True,
+               fill_color="black", back_color="white", **kwargs):
         """
         Makes qr image using qrcode as qrc. See documentation
         for qrcode package for info.
@@ -76,23 +82,24 @@ class QRcode(object):
         """
         qr = qrc.QRCode(
             version=version,
-            error_correction=self.correction_levels[error_correction],
+            error_correction=cls.correction_levels[error_correction],
             box_size=box_size,
-            border=border
+            border=border,
+            image_factory=image_factory
         )
         qr.add_data(data)
         qr.make(fit=fit)
 
-        fcolor = fill_color if fill_color.lower() in self.color or \
+        fcolor = fill_color if fill_color.lower() in cls.color or \
             fill_color.startswith('#') else "#"+fill_color
-        bcolor = back_color if back_color.lower() in self.color or \
+        bcolor = back_color if back_color.lower() in cls.color or \
             back_color.startswith('#') else "#"+back_color
 
         # creates qrcode base64
         out = BytesIO()
         qr_img = qr.make_image(back_color=fcolor, fill_color=bcolor)
         qr_img = qr_img.convert("RGBA")
-        qr_img = self._insert_img(qr_img, **kwargs)
+        qr_img = cls._insert_img(qr_img, **kwargs)
         qr_img.save(out, 'PNG')
         out.seek(0)
 
@@ -101,16 +108,21 @@ class QRcode(object):
         elif mode == 'raw':
             return out
 
-    def _insert_img(self, qr_img, icon_img=None, factor=4, icon_box=None):
+    @staticmethod
+    def _insert_img(qr_img, icon_img=None, factor=4, icon_box=None, static_dir=None):
         """Insert small icon to QR Code image"""
         img_w, img_h = qr_img.size
         size_w = int(img_w) / int(factor)
         size_h = int(img_h) / int(factor)
 
         try:
-            icon_fp = os.path.join(self.app.static_folder, icon_img)
+            # load icon from current dir
+            icon_fp = os.path.join(icon_img)
+            if static_dir:
+                # load icon from app's static dir
+                icon_fp = os.path.join(static_dir, icon_img)
             if icon_img.split('://')[0] in ['http', 'https', 'ftp']:
-                icon_fp = BytesIO(urlopen(icon_img).read())
+                icon_fp = BytesIO(urlopen(icon_img).read())  # download icon
             icon = Image.open(icon_fp)
         except:
             return qr_img

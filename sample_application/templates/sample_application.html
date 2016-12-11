@@ -29,6 +29,12 @@
         <h2>&lt;img src="&#123;&#123; qrcode("FATALITY", box_size=12, border=5) &#125;&#125;"&gt;</h2>
             <img src="{{ qrcode("FATALITY", box_size=12, border=5) }}">
 
+        <h1>A template filter example:</h1>
+
+        <h2>&lt;img src="&#123;&#123; 'A template filter qrcode example.' | qrcode(back_color='transparent') &#125;&#125;"&gt;</h2>
+            <img src="{{ 'A template filter qrcode example.' | qrcode(back_color='transparent') }}">
+        <br>
+
         <h1>A color QR example:</h1>
 
         <h2>&lt;img src="&#123;&#123; qrcode("You can see green front color and #CCC back color.", error_correction='H', back_color='ccc', fill_color='green') &#125;&#125;"&gt;</h2>
@@ -39,6 +45,24 @@
 
         <h2>&lt;img src="&#123;&#123; qrcode("You can see a icon in QR code.", error_correction='H', icon_img='https://avatars1.githubusercontent.com/u/8544397?v=3&s=460') &#125;&#125;"&gt;</h2>
             <img src="{{ qrcode("You can see a icon in QR code.", error_correction='H', icon_img='https://avatars1.githubusercontent.com/u/8544397?v=3&s=460') }}">
+        <br>
+
+        <h1>A icon image QR example (local):</h1>
+
+        <h2>&lt;img src="&#123;&#123; qrcode("Load icon image from static folder.", error_correction='H', icon_img='icon.jpg') &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("Load icon image from static folder.", error_correction='H', icon_img='icon.jpg') }}">
+        <br>
+
+        <h1>A customize blocks example (polygon):</h1>
+
+        <h2>&lt;img src="&#123;&#123; qrcode('You can easily customize blocks (polygon, circle, bitmap, text, etc.) for QR code.', box_size=15, back_color='transparent', image_factory=PolygonImage) &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode('You can easily customize blocks (polygon, circle, bitmap, text, etc.) for QR code.', box_size=15, back_color='transparent', image_factory=PolygonImage) }}">
+        <br>
+
+        <h1>A customize blocks example (bitmap):</h1>
+
+        <h2>&lt;img src="&#123;&#123; qrcode('You can easily customize blocks (polygon, circle, bitmap, text, etc.) for QR code.', box_size=15, back_color='transparent', image_factory=BitmapImage) &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode('You can easily customize blocks (polygon, circle, bitmap, text, etc.) for QR code.', box_size=15, back_color='transparent', image_factory=BitmapImage) }}">
         <br>
     </body>
 </html>
