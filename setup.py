@@ -17,12 +17,12 @@ class PyTest(TestCommand):
 
 setup(
     name='Flask-QRcode',
-    version='0.8.0',
+    version='0.9.0',
     license='MIT',
     description='A simple flask extension to render QR codes on template',
     long_description=open('README.md').read(),
     author='Marco Agner',
-    author_email='marcoagner@agner.io',
+    author_email='marco@agner.io',
     url='https://github.com/marcoagner/Flask-QRcode',
     platforms='any',
     zip_safe=False,
