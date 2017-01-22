@@ -2,7 +2,7 @@ Flask-QRcode
 ============
 [![PyPI version](https://badge.fury.io/py/Flask-QRcode.svg)](https://badge.fury.io/py/Flask-QRcode)
 
-> An elegant Flask extension to render QR codes using [python-qrcode](https://github.com/lincolnloop/python-qrcode)
+> An concise Flask extension to render QR codes using [python-qrcode](https://github.com/lincolnloop/python-qrcode)
 
 ![](QRcode.png)
 

@@ -39,7 +39,7 @@ setup(
     name='Flask-QRcode',
     version='0.10.0',
     license='GPLv3',
-    description='An elegant flask extension to render QR codes',
+    description='An concise flask extension to render QR codes',
     long_description=open('README.md').read(),
     author='Marco Agner',
     author_email='marco@agner.io',
