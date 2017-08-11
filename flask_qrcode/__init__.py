@@ -33,7 +33,7 @@ from flask import Blueprint
 
 
 class QRcode(object):
-    """Generate QR Code image"""
+    """QR Code image class"""
     color = ['red', 'maroon', 'olive', 'yellow', 'lime', 'green',
              'aqua', 'teal', 'blue', 'navy', 'fuchsia', 'purple',
              'white', 'silver', 'gray', 'black']
@@ -72,15 +72,14 @@ class QRcode(object):
             app.add_template_global(self._qrcode, 'qrcode')
 
     def register_blueprint(self, app):
-        module = Blueprint('qrcode',
-                           __name__,
-                           template_folder='templates')
+        module = Blueprint('qrcode', __name__, template_folder='templates')
         app.register_blueprint(module)
         return module
 
     @classmethod
-    def qrcode(cls, data, mode="base64", version=None, error_correction="L", box_size=10,
-               border=0, fit=True, fill_color="black", back_color="white", **kwargs):
+    def qrcode(cls, data, mode="base64", version=None, error_correction="L",
+               box_size=10, border=0, fit=True, fill_color="black",
+               back_color="white", **kwargs):
         """
         Makes qr image using qrcode as qrc. See documentation
         for qrcode package for info.
@@ -122,12 +121,14 @@ class QRcode(object):
         out.seek(0)
 
         if mode == 'base64':
-            return u"data:image/png;base64," + base64.b64encode(out.getvalue()).decode('ascii')
+            return u"data:image/png;base64," +\
+                   base64.b64encode(out.getvalue()).decode('ascii')
         elif mode == 'raw':
             return out
 
     @staticmethod
-    def _insert_img(qr_img, icon_img=None, factor=4, icon_box=None, static_dir=None):
+    def _insert_img(qr_img, icon_img=None, factor=4, icon_box=None,
+                    static_dir=None):
         """Insert small icon to QR Code image"""
         img_w, img_h = qr_img.size
         size_w = int(img_w) / int(factor)
@@ -153,6 +154,7 @@ class QRcode(object):
 
         left = int((img_w - icon_w) / 2)
         top = int((img_h - icon_h) / 2)
-        icon_box = (int(icon_box[0]), int(icon_box[1])) if icon_box else (left, top)
+        icon_box = (int(icon_box[0]), int(icon_box[1])) if icon_box else\
+                   (left, top)
         qr_img.paste(im=icon, box=icon_box, mask=icon)
         return qr_img
