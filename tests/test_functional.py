@@ -30,7 +30,7 @@ def test_load_online_icon_qrcode():
     qrcode = QRcode()
     old_qr = qrcode('Test Data')
     new_qr = qrcode('Test Data',
-                    icon_img='https://avatars2.githubusercontent.com/u/5016303')
+                    icon_img='https://www.agner.io/icon.jpg')
     assert "data:image/png;base64," in new_qr
     assert len(new_qr) > len(old_qr)
 
