@@ -1,4 +1,4 @@
-Flask==0.10.1
-qrcode==5.0.1
-Pillow==2.5.1
+Flask==0.12.2
+qrcode==5.3
+Pillow==4.2.1
 pytest==3.0.4
