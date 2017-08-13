@@ -1,4 +1,1 @@
-Flask==0.12.2
-qrcode==5.3
-Pillow==4.2.1
-pytest==3.0.4
+-r requirements/base.txt
