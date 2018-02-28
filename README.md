@@ -2,7 +2,8 @@ Flask-QRcode
 ============
 [![PyPI version](https://badge.fury.io/py/Flask-QRcode.svg)](https://badge.fury.io/py/Flask-QRcode)
 
-> A concise Flask extension to render QR codes using [python-qrcode](https://github.com/lincolnloop/python-qrcode)
+> A concise Flask extension to easily render QR codes on Jinja2 templates using
+[python-qrcode](https://github.com/lincolnloop/python-qrcode)
 
 ![](QRcode.png)
 
@@ -50,7 +51,9 @@ As this is a simple package, the process is pretty straightforward...
     pip install -e .  # for installing flask_qrcode on editable mode
     ```
 4. Do your magic
-5. Pull Request!
+5. Provide new tests for your work and check that both this and the old ones
+   are passing
+6. Pull Request!
 
 ## Testing:
 
