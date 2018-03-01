@@ -24,7 +24,7 @@ GitHub
 Installation
 ------------
 
-You can install it from PyPy:
+You can install it from PyPi:
 ::
 
         $ pip install flask-qrcode
