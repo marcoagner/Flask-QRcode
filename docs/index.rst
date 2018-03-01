@@ -26,6 +26,7 @@ Installation
 
 You can install it from PyPy:
 ::
+
         $ pip install flask-qrcode
 
 Or download the latest release from the `GitHub repository
@@ -36,10 +37,11 @@ Note tha all the latest releases should be signed with the PGP key
 `keybase <https://keybase.io/marcoagner>`_).
 
 Basic usage
------
+-----------
 
 **Extend the app:**
 ::
+
         from flask_qrcode import QRcode
         # [...]
         QRcode(app)
@@ -47,6 +49,7 @@ Basic usage
 
 **Then use it within your templates:**
 ::
+
         {# Basic usage: #}
         <img src="{{ qrcode(STRING_TO_ENCODE) }}">
 
@@ -55,48 +58,56 @@ More examples
 
 **Simple example:**
 ::
+
         <img src="{{ qrcode("Do you speak QR?")  }}">
 
 .. image:: /_static/examples/simple-example.png
 
 **Changing box size:**
 ::
+
         <img src="{{ qrcode("I'm bigger than you!", box_size=20)  }}">
 
 .. image:: /_static/examples/shape-example-1.png
 
 **Changing border size:**
 ::
+
         <img src="{{ qrcode("Whatever... can't touch me", border=10)  }}">
 
 .. image:: /_static/examples/shape-example-2.png
 
 **Changing QRcode error correction according to python-qrcode documentations:**
 ::
+
         <img src="{{ qrcode("You can read me even if I'm 30% hurt.", error_correction='H')  }}">
 
 .. image:: /_static/examples/qrcode-example-1.png
 
 **A "combo" example changing more than one parameter:**
 ::
+
         <img src="{{ qrcode("FATALITY", box_size=12, border=5)  }}">
 
 .. image:: /_static/examples/combo-example-1.png
 
 **Changing the color of the QR code:**
 ::
+
         <img src="{{ qrcode("You can see green front color and #CCC back color.", error_correction='H', back_color='ccc', fill_color='green')  }}">
 
 .. image:: /_static/examples/color-example-1.png
 
 **Rendering an icon inside the QR code (external link):**
 ::
+
         <img src="{{ qrcode("You can see a icon in QR code.", error_correction='H', icon_img='https://www.agner.io/icon.jpg')  }}">
 
 .. image:: /_static/examples/icon-example-1.png
 
 **Rendering an icon inside the QR code (local file):**
 ::
+
         <img src="{{ qrcode("Load icon image from static folder.", error_correction='H', icon_img='icon.jpg')  }}">
 
 .. image:: /_static/examples/icon-example-2.png
@@ -119,6 +130,7 @@ fixing some existent feature and refactoring non-related code).
 
 3. Install dependencies and flask_qrcode on editable mode
 ::
+
         $ pip install -e . # for installing flask_qrcode on editable mode
 
 4. Do your magic
@@ -131,10 +143,12 @@ Testing
 
 1. Install dependencies and flask_qrcode on editable mode
 ::
+
         $ pip install -e . # for installing flask_qrcode on editable mode
 
 2. Run pytest
 ::
+
         $ python setup.py test # in package's root dir
 
 Source code documentation
