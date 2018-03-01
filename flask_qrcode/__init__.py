@@ -34,6 +34,7 @@ from flask import Blueprint
 
 class QRcode(object):
     """QR Code image class"""
+
     color = ['red', 'maroon', 'olive', 'yellow', 'lime', 'green',
              'aqua', 'teal', 'blue', 'navy', 'fuchsia', 'purple',
              'white', 'silver', 'gray', 'black']
@@ -80,15 +81,14 @@ class QRcode(object):
     def qrcode(cls, data, mode="base64", version=None, error_correction="L",
                box_size=10, border=0, fit=True, fill_color="black",
                back_color="white", **kwargs):
-        """
-        Makes qr image using qrcode as qrc. See documentation
-        for qrcode package for info.
+        """Makes qr image using qrcode as qrc. See documentation
+        for qrcode (https://pypi.python.org/pypi/qrcode) package for more info.
 
         :param data: String data.
         :param mode: Output mode, [base64|raw].
         :param version: The size of the QR Code (1-40).
         :param error_correction: The error correction used for the QR Code.
-        :param box_size: How many pixels each "box" of the QR code.
+        :param box_size: The number of pixels for each "box" of the QR code.
         :param border: The number of box for border.
         :param fit: If `True`, find the best fit for the data.
         :param fill_color: Frontend color.
@@ -129,7 +129,7 @@ class QRcode(object):
     @staticmethod
     def _insert_img(qr_img, icon_img=None, factor=4, icon_box=None,
                     static_dir=None):
-        """Insert small icon to QR Code image"""
+        """Inserts a small icon to QR Code image"""
         img_w, img_h = qr_img.size
         size_w = int(img_w) / int(factor)
         size_h = int(img_h) / int(factor)
