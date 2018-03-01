@@ -5,6 +5,8 @@ Flask-QRcode
 > A concise Flask extension to easily render QR codes on Jinja2 templates using
 [python-qrcode](https://github.com/lincolnloop/python-qrcode)
 
+You can read the [full documentation here](https://marcoagner.github.io/Flask-QRcode/).
+
 ![](QRcode.png)
 
 ## Installation
