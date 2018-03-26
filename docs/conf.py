@@ -13,9 +13,9 @@ copyright = '2014-2018, Marco Agner'
 author = 'Marco Agner'
 
 # The short X.Y version
-version = '1.1.2'
+version = '2.0.0'
 # The full version, including alpha/beta/rc tags
-release = 'v1.1.2'
+release = 'v2.0.0'
 
 
 # -- General configuration ---------------------------------------------------

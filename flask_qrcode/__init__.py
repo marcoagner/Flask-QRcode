@@ -114,7 +114,7 @@ class QRcode(object):
 
         # creates qrcode base64
         out = BytesIO()
-        qr_img = qr.make_image(back_color=fcolor, fill_color=bcolor)
+        qr_img = qr.make_image(back_color=bcolor, fill_color=fcolor)
         qr_img = qr_img.convert("RGBA")
         qr_img = cls._insert_img(qr_img, **kwargs)
         qr_img.save(out, 'PNG')
