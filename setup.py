@@ -37,7 +37,7 @@ class PyTest(TestCommand):
 
 setup(
     name='Flask-QRcode',
-    version='2.0.1',
+    version='2.0.2',
     license='GPLv3',
     description='A concise Flask extension to render QR codes on Jinja2 ' \
                 'templates using python-qrcode',
