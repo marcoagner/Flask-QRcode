@@ -1,4 +1,4 @@
-'''
+"""
 
  Copyright (C) 2016 Marco Agner
 
@@ -17,7 +17,7 @@
  You should have received a copy of the GNU General Public License
  along with Flask-QRcode.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
+"""
 import http.server
 import socketserver
 import threading
