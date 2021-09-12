@@ -9,6 +9,9 @@
         <h2>&lt;img src="&#123;&#123; qrcode("Do you speak QR?") &#125;&#125;"&gt;</h2>
             <img src="{{ qrcode("Do you speak QR?") }}">
 
+        <h2>&lt;img src="&#123;&#123; qrcode("Do you speak QR?", caption=['title', 'subtitle', {'param-1':'value-1'}, {'param-2': 'value-2'}]) &#125;&#125;"&gt;</h2>
+            <img src="{{ qrcode("Do you speak QR?", caption=['title', 'subtitle', {'param-1':'value-1'}, {'param-2': 'value-2'}]) }}">
+
         <h1>Shape examples:</h1>
 
         <h2>&lt;img src="&#123;&#123; qrcode("I'm bigger than you!", box_size=20) &#125;&#125;"&gt;</h2>
