@@ -28,7 +28,7 @@ try:
 except:
     from urllib.request import urlopen  # py3
 
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 import qrcode as qrc
 from flask import Blueprint
 
@@ -97,6 +97,7 @@ class QRcode(object):
         cls,
         data,
         mode="base64",
+        caption=None,
         version=None,
         error_correction="L",
         box_size=10,
@@ -148,6 +149,7 @@ class QRcode(object):
         qr_img = qr.make_image(back_color=bcolor, fill_color=fcolor)
         qr_img = qr_img.convert("RGBA")
         qr_img = cls._insert_img(qr_img, **kwargs)
+        qr_img = cls._insert_caption(qr_img, caption)
         qr_img.save(out, "PNG")
         out.seek(0)
 
@@ -188,3 +190,36 @@ class QRcode(object):
         icon_box = (int(icon_box[0]), int(icon_box[1])) if icon_box else (left, top)
         qr_img.paste(im=icon, box=icon_box, mask=icon)
         return qr_img
+
+    @staticmethod
+    def _insert_caption(qr_img, caption=None):
+        """Inserts caption(s) below qr image
+        :param caption: list[]
+            elements should be str or dict
+        """
+        img_w, img_h = qr_img.size
+        level, delta = 25, 25
+
+        font_file_path = 'fonts/Roboto-Bold.ttf'
+        font = ImageFont.truetype(font_file_path, size=20, encoding="unic")
+        text_font = ImageFont.truetype(font_file_path, size=20, encoding="unic")
+
+        if caption is None:
+            return qr_img
+
+        num_elements = len(caption)
+
+        img = Image.new('RGB', (img_w, img_h + (num_elements+1)*delta + 2*delta), (240,240,240,0))
+        d = ImageDraw.Draw(img)
+
+        for elem in caption:
+            if type(elem) == dict:
+                for key, val in elem.items():
+                    d.text((5, img_h + level), "{}: {}".format(key, val), font=text_font, fill="#000")
+                    level += delta
+            elif type(elem) == str:
+                d.text((5, img_h + level), "{}".format(elem), font=text_font, fill="#000")
+                level += delta
+
+        img.paste(qr_img, (0, 0))
+        return img
