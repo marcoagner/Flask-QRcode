@@ -104,6 +104,7 @@ class QRcode(object):
         fit=True,
         fill_color="black",
         back_color="white",
+        image_factory=None,
         **kwargs
     ):
         """Makes qr image using qrcode as qrc. See documentation
@@ -118,6 +119,7 @@ class QRcode(object):
         :param fit: If `True`, find the best fit for the data.
         :param fill_color: Frontend color.
         :param back_color: Background color.
+        :param image_factory: Image factory, optional
 
         :param icon_img: Small icon image name or url.
         :param factor: Resize for icon image (default: 4, one-fourth of QRCode)
@@ -128,6 +130,7 @@ class QRcode(object):
             error_correction=cls.correction_levels[error_correction],
             box_size=box_size,
             border=border,
+            image_factory=image_factory,
         )
         qr.add_data(data)
         qr.make(fit=fit)
