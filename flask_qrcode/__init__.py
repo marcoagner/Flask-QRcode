@@ -23,6 +23,7 @@ import os
 import base64
 from io import BytesIO
 
+import PIL.Image
 from qrcode.image.svg import SvgFragmentImage
 
 try:
@@ -163,7 +164,7 @@ class QRcode(object):
         out.seek(0)
 
         if mode == "base64":
-            if isinstance(qr_img, PilImage):
+            if isinstance(qr_img, (PilImage, PIL.Image.Image)):
                 return u"data:image/png;base64," + base64.b64encode(out.getvalue()).decode(
                     "ascii"
                 )
@@ -173,7 +174,7 @@ class QRcode(object):
                 raise TypeError(f"Invalid type of qr_img, type is {type(qr_img)}, image_factory should return PilImage or SvgFragmentImage")
 
         elif mode == "raw":
-            if isinstance(qr_img, PilImage):
+            if isinstance(qr_img, (PilImage, PIL.Image.Image)):
                 return out
             elif isinstance(qr_img, SvgFragmentImage):
                 return u"data:image/svg+xml;utf8," + out.getvalue().decode('utf-8')
