@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>flask_qrcode package &#8212; Flask-QRcode v2.0.0 documentation</title>
+    <title>flask_qrcode package &#8212; Flask-QRcode v3.1.0 documentation</title>
     <link rel="stylesheet" href="_static/flasky.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Flask-QRcode v2.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Flask-QRcode v3.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -56,7 +56,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.</p>
 <p>You should have received a copy of the GNU General Public License
-along with Foobar.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
+along with Flask-QRcode.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
 <dl class="class">
 <dt id="flask_qrcode.QRcode">
 <em class="property">class </em><code class="descclassname">flask_qrcode.</code><code class="descname">QRcode</code><span class="sig-paren">(</span><em>app=None</em>, <em>config_jinja=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#flask_qrcode.QRcode" title="Permalink to this definition">¶</a></dt>
@@ -79,7 +79,7 @@ along with Foobar.  If not, see &lt;<a class="reference external" href="http://w
 
 <dl class="classmethod">
 <dt id="flask_qrcode.QRcode.qrcode">
-<em class="property">classmethod </em><code class="descname">qrcode</code><span class="sig-paren">(</span><em>data</em>, <em>mode='base64'</em>, <em>version=None</em>, <em>error_correction='L'</em>, <em>box_size=10</em>, <em>border=0</em>, <em>fit=True</em>, <em>fill_color='black'</em>, <em>back_color='white'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#flask_qrcode.QRcode.qrcode" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">qrcode</code><span class="sig-paren">(</span><em>data</em>, <em>mode='base64'</em>, <em>version=None</em>, <em>error_correction='L'</em>, <em>box_size=10</em>, <em>border=0</em>, <em>fit=True</em>, <em>fill_color='black'</em>, <em>back_color='white'</em>, <em>image_factory=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#flask_qrcode.QRcode.qrcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes qr image using qrcode as qrc. See documentation
 for qrcode (<a class="reference external" href="https://pypi.python.org/pypi/qrcode">https://pypi.python.org/pypi/qrcode</a>) package for more info.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -96,6 +96,7 @@ for qrcode (<a class="reference external" href="https://pypi.python.org/pypi/qrc
 <li><strong>fit</strong> – If <cite>True</cite>, find the best fit for the data.</li>
 <li><strong>fill_color</strong> – Frontend color.</li>
 <li><strong>back_color</strong> – Background color.</li>
+<li><strong>image_factory</strong> – Image factory, optional</li>
 <li><strong>icon_img</strong> – Small icon image name or url.</li>
 <li><strong>factor</strong> – Resize for icon image (default: 4, one-fourth of QRCode)</li>
 <li><strong>icon_box</strong> – Icon image position [left, top] (default: image center)</li>
