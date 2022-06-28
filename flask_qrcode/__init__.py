@@ -23,6 +23,9 @@ import os
 import base64
 from io import BytesIO
 
+import PIL.Image
+from qrcode.image.svg import SvgFragmentImage
+
 try:
     from urllib import urlopen  # py2
 except:
@@ -30,6 +33,7 @@ except:
 
 from PIL import Image
 import qrcode as qrc
+from qrcode.image.pil import PilImage
 from flask import Blueprint
 
 
@@ -104,6 +108,7 @@ class QRcode(object):
         fit=True,
         fill_color="black",
         back_color="white",
+        image_factory=None,
         **kwargs
     ):
         """Makes qr image using qrcode as qrc. See documentation
@@ -118,6 +123,7 @@ class QRcode(object):
         :param fit: If `True`, find the best fit for the data.
         :param fill_color: Frontend color.
         :param back_color: Background color.
+        :param image_factory: Image factory, optional
 
         :param icon_img: Small icon image name or url.
         :param factor: Resize for icon image (default: 4, one-fourth of QRCode)
@@ -128,6 +134,7 @@ class QRcode(object):
             error_correction=cls.correction_levels[error_correction],
             box_size=box_size,
             border=border,
+            image_factory=image_factory,
         )
         qr.add_data(data)
         qr.make(fit=fit)
@@ -146,17 +153,33 @@ class QRcode(object):
         # creates qrcode base64
         out = BytesIO()
         qr_img = qr.make_image(back_color=bcolor, fill_color=fcolor)
-        qr_img = qr_img.convert("RGBA")
-        qr_img = cls._insert_img(qr_img, **kwargs)
-        qr_img.save(out, "PNG")
+        if isinstance(qr_img, PilImage):
+            qr_img = qr_img.convert("RGBA")
+            qr_img = cls._insert_img(qr_img, **kwargs)
+            qr_img.save(out, "PNG")
+        elif isinstance(qr_img, SvgFragmentImage):
+            qr_img.save(out, "SVG")
+        else:
+            raise TypeError(f"Invalid type of qr_img, type is {type(qr_img)}, image_factory should return PilImage or SvgFragmentImage")
         out.seek(0)
 
         if mode == "base64":
-            return u"data:image/png;base64," + base64.b64encode(out.getvalue()).decode(
-                "ascii"
-            )
+            if isinstance(qr_img, (PilImage, PIL.Image.Image)):
+                return u"data:image/png;base64," + base64.b64encode(out.getvalue()).decode(
+                    "ascii"
+                )
+            elif isinstance(qr_img, SvgFragmentImage):
+                return u"data:image/svg+xml;base64," + base64.b64encode(out.getvalue()).decode("ascii")
+            else:
+                raise TypeError(f"Invalid type of qr_img, type is {type(qr_img)}, image_factory should return PilImage or SvgFragmentImage")
+
         elif mode == "raw":
-            return out
+            if isinstance(qr_img, (PilImage, PIL.Image.Image)):
+                return out
+            elif isinstance(qr_img, SvgFragmentImage):
+                return u"data:image/svg+xml;utf8," + out.getvalue().decode('utf-8')
+            else:
+                raise TypeError(f"Invalid type of qr_img, type is {type(qr_img)}, image_factory should return PilImage or SvgFragmentImage")
 
     @staticmethod
     def _insert_img(qr_img, icon_img=None, factor=4, icon_box=None, static_dir=None):
