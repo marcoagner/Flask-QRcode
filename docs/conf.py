@@ -10,13 +10,13 @@ sys.path.append(os.path.join(os.path.dirname(__name__), ".."))
 # -- Project information -----------------------------------------------------
 
 project = "Flask-QRcode"
-copyright = "2014-2018, Marco Agner"
+copyright = "2014-2024, Marco Agner"
 author = "Marco Agner"
 
 # The short X.Y version
-version = "3.1.0"
+version = "3.2.0"
 # The full version, including alpha/beta/rc tags
-release = "v3.1.0"
+release = "v3.2.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,7 +41,7 @@ master_doc = "index"
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.

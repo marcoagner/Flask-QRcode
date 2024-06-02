@@ -62,3 +62,5 @@ docs/_build/
 
 # QR imgs
 sample_application/**/*.png
+
+.env
