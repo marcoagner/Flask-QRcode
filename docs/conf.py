@@ -10,13 +10,13 @@ sys.path.append(os.path.join(os.path.dirname(__name__), ".."))
 # -- Project information -----------------------------------------------------
 
 project = "Flask-QRcode"
-copyright = "2014-2018, Marco Agner"
+copyright = "2014-2024, Marco Agner"
 author = "Marco Agner"
 
 # The short X.Y version
-version = "3.1.0"
+version = "3.2.0"
 # The full version, including alpha/beta/rc tags
-release = "v3.1.0"
+release = "v3.2.0"
 
 
 # -- General configuration ---------------------------------------------------
