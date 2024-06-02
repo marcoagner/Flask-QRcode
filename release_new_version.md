@@ -11,3 +11,8 @@ make sure that the `dist` directory contains `tar.gz` and `whl` files without sp
 ```
 twine upload --skip-existing dist/*
 ```
+to do proper git tagging
+```
+git tag v<version>
+git push
+```
