@@ -24,3 +24,4 @@ use python 3.8 or similar, it did not work with 3.11
 pip install -e .
 sphinx-build -M html docs docs/_build
 ```
+manually copy them to the `gh-pages` branch and push it to the remote.
