@@ -203,7 +203,7 @@ class QRcode(object):
         icon_w, icon_h = icon.size
         icon_w = size_w if icon_w > size_w else icon_w
         icon_h = size_h if icon_h > size_h else icon_h
-        icon = icon.resize((int(icon_w), int(icon_h)), Image.ANTIALIAS)
+        icon = icon.resize((int(icon_w), int(icon_h)), Image.Resampling.LANCZOS)
         icon = icon.convert("RGBA")
 
         left = int((img_w - icon_w) / 2)
