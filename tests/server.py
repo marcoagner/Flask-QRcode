@@ -30,6 +30,5 @@ class TestServer(socketserver.TCPServer):
 def start_test_server(port=5000):
     handler = http.server.SimpleHTTPRequestHandler
     httpd = TestServer(("", port), handler)
-    httpd_thread = threading.Thread(target=httpd.serve_forever)
-    httpd_thread.setDaemon(True)
+    httpd_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
     httpd_thread.start()
