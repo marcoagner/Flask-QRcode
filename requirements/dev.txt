@@ -1,6 +1,6 @@
 -r base.txt
 
 pytest==6.2.5
-Sphinx==5.0.2
+Sphinx==1.7.1
 Flask-Sphinx-Themes==1.0.2
 Jinja2<3.1.0
