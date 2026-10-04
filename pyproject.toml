@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "Flask-QRcode"
-version = "3.1.0"
+version = "3.2.1"
 description = "A concise Flask extension to render QR codes on Jinja2 templates using python-qrcode"
 readme = "README.md"
 license = "GPL-3.0-or-later"
