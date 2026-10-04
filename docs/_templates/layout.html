@@ -1,0 +1,9 @@
+{% extends "!layout.html" %}
+
+{% block relbar2 %}
+{% if theme_github_fork %}
+<div class="github">
+    <a class="github-fork-link" href="https://github.com/{{ theme_github_fork }}">Fork me on GitHub</a>
+</div>
+{% endif %}
+{% endblock %}

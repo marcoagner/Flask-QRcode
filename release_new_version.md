@@ -1,27 +1,35 @@
 # Registering new version
 
-```
-pip install build
-python -m build --sdist --wheel
+Update the `version` in `pyproject.toml`, then run the tests. Build both
+distributions with `uv`:
 
 ```
+uv build --sdist --wheel
+```
 
-make sure that the `dist` directory contains `tar.gz` and `whl` files without specific python version.
+Check that `dist` contains a source `.tar.gz` and a universal
+`py3-none-any.whl` wheel. Publish them to PyPI:
 
 ```
-twine upload --skip-existing dist/*
+uv publish
 ```
-to do proper git tagging
+
+Create and push a Git tag using the version from `pyproject.toml` (PowerShell):
+
 ```
-git tag v<version>
-git push
+$version = uv version --short
+git tag "v$version"
+git push origin "v$version"
 ```
 
 ## updating docs
 
-use python 3.8 or similar, it did not work with 3.11
+Use Python 3.8 or similar; the docs build did not work with Python 3.11.
+Sync the project and its development dependencies, then build the docs:
+
 ```
-pip install -e .
-sphinx-build -M html docs docs/_build
+uv sync --python 3.8 --group dev
+uv run sphinx-build -M html docs docs/_build
 ```
-manually copy them to the `gh-pages` branch and push it to the remote.
+
+Manually copy the generated files to the `gh-pages` branch and push it to the remote.
