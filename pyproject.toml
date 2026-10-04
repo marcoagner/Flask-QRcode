@@ -10,7 +10,7 @@ readme = "README.md"
 license = "GPL-3.0-or-later"
 license-files = ["COPYING"]
 authors = [{ name = "Marco Agner", email = "marco@agner.io" }]
-requires-python = ">=3.6"
+requires-python = ">=3.7"
 dependencies = [
     "Flask>=0.12.3",
     "qrcode>=6.1,<7.4",
@@ -32,8 +32,7 @@ classifiers = [
 
 [dependency-groups]
 dev = [
-    "pytest>=8.0; python_version >= '3.8'",
-    "pytest>=6.2,<7; python_version < '3.8'",
+    "pytest>=4.6.6",
     "Sphinx==1.7.1",
     "Flask-Sphinx-Themes==1.0.2",
     "Jinja2<3.1.0",
