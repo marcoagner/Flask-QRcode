@@ -50,7 +50,7 @@ As this is a simple package, the process is pretty straightforward...
 
 3. Install dependencies and flask_qrcode on editable mode
     ```
-    pip install -e .  # for installing flask_qrcode on editable mode
+    uv sync --group dev
     ```
 4. Do your magic
 5. Provide new tests for your work and check that both this and the old ones
@@ -61,9 +61,9 @@ As this is a simple package, the process is pretty straightforward...
 
 1. Install dependencies and flask_qrcode on editable mode
 ```
-pip install -e .  # for installing flask_qrcode on editable mode
+uv sync --group dev
 ```
 2. Run pytest
 ```
-python setup.py test  # on package's root dir
+uv run pytest
 ```
