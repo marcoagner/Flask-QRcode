@@ -36,3 +36,28 @@ jobs:
       - name: Run tests
         # Avoid the Windows/Python 3.7 pytest launcher encoding failure.
         run: uv run python -m pytest
+
+  min-versions:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.8"
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Install dependencies
+        run: uv sync --group dev --python 3.8
+
+      - name: Install minimum supported versions
+        # Old Flask does not upper-bound its deps, so pin them to the same era.
+        run: >-
+          uv pip install
+          qrcode==6.1 Pillow==9.1.0
+          Flask==0.12.3 Werkzeug==0.16.1 Jinja2==2.11.3
+          itsdangerous==0.24 click==7.1.2 MarkupSafe==1.1.1
+
+      - name: Run tests
+        run: uv run --no-sync python -m pytest

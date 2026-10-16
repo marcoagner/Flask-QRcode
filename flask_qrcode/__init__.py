@@ -152,7 +152,11 @@ class QRcode(object):
 
         # creates qrcode base64
         out = BytesIO()
-        qr_img = qr.make_image(back_color=bcolor, fill_color=fcolor)
+        if isinstance(image_factory, type) and issubclass(image_factory, SvgFragmentImage):
+            # qrcode>=7.4 writes unknown kwargs as attributes of the <svg> root
+            qr_img = qr.make_image()
+        else:
+            qr_img = qr.make_image(back_color=bcolor, fill_color=fcolor)
         if isinstance(qr_img, PilImage):
             qr_img = qr_img.convert("RGBA")
             qr_img = cls._insert_img(qr_img, **kwargs)
