@@ -14,8 +14,6 @@ jobs:
     environment:
       name: pypi
       url: https://pypi.org/p/Flask-QRcode
-    permissions:
-      id-token: write
     steps:
       - uses: actions/checkout@v5
 
@@ -26,3 +24,5 @@ jobs:
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}

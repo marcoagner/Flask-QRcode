@@ -17,9 +17,9 @@ git tag "v$version"
 git push origin "v$version"
 ```
 
-Configure PyPI trusted publishing once for this repository: add
-`publish.yml` as a trusted publisher with the `pypi` environment. The publish
-workflow runs when a `v*` tag is pushed.
+Add a PyPI API token as the repository Actions secret `PYPI_API_TOKEN`. Use a
+project-scoped token for `Flask-QRcode`; the publish workflow reads it when a
+`v*` tag is pushed. Someone with PyPI project access must create the token.
 
 Documentation builds run for pull requests. Pushes to `master` also publish
 the generated HTML to GitHub Pages. Set the repository's Pages source to
