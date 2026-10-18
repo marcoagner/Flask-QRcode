@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>flask_qrcode package &#8212; Flask-QRcode v3.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/flasky.css?v=51657187" />
+    <link rel="stylesheet" type="text/css" href="_static/github-fork.css?v=864b0e33" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=ccfc871c"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+     
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head><body>
+    
+    
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Flask-QRcode v3.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">flask_qrcode package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="flask-qrcode-package">
+<h1>flask_qrcode package<a class="headerlink" href="#flask-qrcode-package" title="Permalink to this heading">¶</a></h1>
+<section id="module-flask_qrcode">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flask_qrcode" title="Permalink to this heading">¶</a></h2>
+<p>Copyright (C) 2016 Marco Agner</p>
+<p>This file is part of Flask-QRcode.</p>
+<p>Flask-QRcode is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+<p>Flask-QRcode is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with Flask-QRcode.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="flask_qrcode.QRcode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flask_qrcode.</span></span><span class="sig-name descname"><span class="pre">QRcode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_jinja</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flask_qrcode.QRcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>QR Code image class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flask_qrcode.QRcode.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['red',</span> <span class="pre">'maroon',</span> <span class="pre">'olive',</span> <span class="pre">'yellow',</span> <span class="pre">'lime',</span> <span class="pre">'green',</span> <span class="pre">'aqua',</span> <span class="pre">'teal',</span> <span class="pre">'blue',</span> <span class="pre">'navy',</span> <span class="pre">'fuchsia',</span> <span class="pre">'purple',</span> <span class="pre">'white',</span> <span class="pre">'silver',</span> <span class="pre">'gray',</span> <span class="pre">'black']</span></em><a class="headerlink" href="#flask_qrcode.QRcode.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flask_qrcode.QRcode.correction_levels">
+<span class="sig-name descname"><span class="pre">correction_levels</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'H':</span> <span class="pre">2,</span> <span class="pre">'L':</span> <span class="pre">1,</span> <span class="pre">'M':</span> <span class="pre">0,</span> <span class="pre">'Q':</span> <span class="pre">3}</span></em><a class="headerlink" href="#flask_qrcode.QRcode.correction_levels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flask_qrcode.QRcode.init_app">
+<span class="sig-name descname"><span class="pre">init_app</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flask_qrcode.QRcode.init_app" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flask_qrcode.QRcode.qrcode">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">qrcode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'base64'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_correction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'L'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">border</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flask_qrcode.QRcode.qrcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes qr image using qrcode as qrc. See documentation
+for qrcode (<a class="reference external" href="https://pypi.python.org/pypi/qrcode">https://pypi.python.org/pypi/qrcode</a>) package for more info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – String data.</p></li>
+<li><p><strong>mode</strong> – Output mode, [base64|raw].</p></li>
+<li><p><strong>version</strong> – The size of the QR Code (1-40).</p></li>
+<li><p><strong>error_correction</strong> – The error correction used for the QR Code.</p></li>
+<li><p><strong>box_size</strong> – The number of pixels for each “box” of the QR code.</p></li>
+<li><p><strong>border</strong> – The number of box for border.</p></li>
+<li><p><strong>fit</strong> – If <cite>True</cite>, find the best fit for the data.</p></li>
+<li><p><strong>fill_color</strong> – Frontend color.</p></li>
+<li><p><strong>back_color</strong> – Background color.</p></li>
+<li><p><strong>image_factory</strong> – Image factory, optional</p></li>
+<li><p><strong>icon_img</strong> – Small icon image name or url.</p></li>
+<li><p><strong>factor</strong> – Resize for icon image (default: 4, one-fourth of QRCode)</p></li>
+<li><p><strong>icon_box</strong> – Icon image position [left, top] (default: image center)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flask_qrcode.QRcode.register_blueprint">
+<span class="sig-name descname"><span class="pre">register_blueprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flask_qrcode.QRcode.register_blueprint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">flask_qrcode package</a><ul>
+<li><a class="reference internal" href="#module-flask_qrcode">Module contents</a><ul>
+<li><a class="reference internal" href="#flask_qrcode.QRcode"><code class="docutils literal notranslate"><span class="pre">QRcode</span></code></a><ul>
+<li><a class="reference internal" href="#flask_qrcode.QRcode.color"><code class="docutils literal notranslate"><span class="pre">QRcode.color</span></code></a></li>
+<li><a class="reference internal" href="#flask_qrcode.QRcode.correction_levels"><code class="docutils literal notranslate"><span class="pre">QRcode.correction_levels</span></code></a></li>
+<li><a class="reference internal" href="#flask_qrcode.QRcode.init_app"><code class="docutils literal notranslate"><span class="pre">QRcode.init_app()</span></code></a></li>
+<li><a class="reference internal" href="#flask_qrcode.QRcode.qrcode"><code class="docutils literal notranslate"><span class="pre">QRcode.qrcode()</span></code></a></li>
+<li><a class="reference internal" href="#flask_qrcode.QRcode.register_blueprint"><code class="docutils literal notranslate"><span class="pre">QRcode.register_blueprint()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div><h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/flask_qrcode.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+<div class="github">
+    <a class="github-fork-link" href="https://github.com/marcoagner/Flask-QRcode">Fork me on GitHub</a>
+</div>
+
+
+    
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2014-2024, Marco Agner.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    </div>
+    
+
+  </body>
+</html>
