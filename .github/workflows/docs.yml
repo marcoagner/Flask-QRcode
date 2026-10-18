@@ -27,11 +27,12 @@ jobs:
       - name: Build documentation
         run: uv run sphinx-build -M html docs docs/_build
 
-      - name: Upload Pages artifact
+      - name: Upload documentation artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: docs/_build/html
+         name: documentation
+         path: docs/_build/html
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
